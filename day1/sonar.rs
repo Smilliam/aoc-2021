@@ -22,6 +22,9 @@ fn main() {
 
     let part2_count = part2(&ints);
     println!("part 2: {}", part2_count);
+
+    let part2_alt_count = part2_alt(&ints);
+    println!("part 2: {}", part2_alt_count);
 }
 
 fn part1(vals: &Vec<i32>) -> i32 {
@@ -53,5 +56,17 @@ fn part2(vals: &Vec<i32>) -> i32 {
 
         prev = sum;
     }
+    return count;
+}
+
+fn part2_alt(vals: &Vec<i32>) -> i32 {
+    let mut count = 0;
+
+    for ii in 0..(vals.len() - 3) {
+        if vals[ii + 3] > vals[ii] {
+            count += 1;
+        }
+    }
+
     return count;
 }
